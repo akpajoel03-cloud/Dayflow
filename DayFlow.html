@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="DayFlow"/>
+<meta name="theme-color" content="#0f0c29"/>
+<title>DayFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{font-family:'Outfit',sans-serif;background:linear-gradient(135deg,#0f0c29 0%,#1a1a2e 50%,#16213e 100%);min-height:100vh;color:#e2e8f0;overscroll-behavior:none;}
+  input,select,button{font-family:'Outfit',sans-serif;}
+  .header{background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 20px;position:sticky;top:0;z-index:100;}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-size:22px;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .date{font-size:12px;color:#64748b;margin-top:2px;}
+  .nav{display:flex;gap:6px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);padding:10px 16px;overflow-x:auto;white-space:nowrap;}
+  .nav button{padding:8px 16px;border-radius:20px;border:none;cursor:pointer;font-size:13px;font-weight:600;font-family:'Outfit',sans-serif;transition:all 0.2s;flex-shrink:0;}
+  .nav button.active{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;}
+  .nav button:not(.active){background:rgba(255,255,255,0.06);color:#94a3b8;}
+  .content{padding:20px 16px;max-width:600px;margin:0 auto;padding-bottom:40px;}
+  .score-card{background:rgba(255,255,255,0.05);border-radius:20px;padding:20px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:18px;}
+  .score-ring{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .score-inner{width:56px;height:56px;border-radius:50%;background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;}
+  .score-label{font-size:17px;font-weight:700;}
+  .score-sub{color:#64748b;font-size:13px;margin-top:3px;}
+  .task-item{background:rgba(255,255,255,0.06);border-radius:14px;padding:13px 15px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:12px;margin-bottom:10px;transition:all 0.2s;}
+  .task-item.done{background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.04);opacity:0.6;}
+  .task-check{width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#fff;transition:all 0.2s;}
+  .task-title{font-weight:600;font-size:15px;transition:all 0.2s;}
+  .task-title.done{text-decoration:line-through;color:#475569;}
+  .task-badge{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600;display:inline-block;margin-top:4px;}
+  .task-del{background:none;border:none;cursor:pointer;color:#475569;font-size:16px;padding:4px;margin-left:auto;}
+  .empty{text-align:center;padding:40px 20px;color:#475569;font-size:15px;background:rgba(255,255,255,0.02);border-radius:16px;border:1px dashed rgba(255,255,255,0.08);}
+  .empty-icon{font-size:36px;margin-bottom:8px;}
+  .add-btn{width:100%;padding:14px;border-radius:14px;border:2px dashed rgba(124,58,237,0.4);background:rgba(124,58,237,0.06);color:#a78bfa;cursor:pointer;font-size:15px;font-weight:600;font-family:'Outfit',sans-serif;transition:all 0.2s;margin-top:4px;}
+  .add-form{background:rgba(255,255,255,0.06);border-radius:16px;padding:18px;border:1px solid rgba(255,255,255,0.12);margin-bottom:10px;}
+  .add-form input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#e2e8f0;font-size:15px;font-family:'Outfit',sans-serif;outline:none;margin-bottom:12px;}
+  .cat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .cat-btn{padding:6px 12px;border-radius:20px;border:2px solid transparent;background:rgba(255,255,255,0.06);color:#64748b;cursor:pointer;font-size:12px;font-weight:600;font-family:'Outfit',sans-serif;transition:all 0.2s;}
+  .form-row{display:flex;gap:8px;align-items:center;}
+  .form-row select{padding:9px 12px;border-radius:10px;flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:13px;}
+  .btn-primary{padding:9px 20px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#2563eb);border:none;color:#fff;cursor:pointer;font-size:14px;font-weight:700;font-family:'Outfit',sans-serif;white-space:nowrap;}
+  .btn-cancel{padding:9px 14px;border-radius:10px;background:rgba(255,255,255,0.06);border:none;color:#64748b;cursor:pointer;font-size:14px;font-family:'Outfit',sans-serif;}
+  .week-item{background:rgba(255,255,255,0.04);border-radius:14px;padding:15px 17px;border:1px solid rgba(255,255,255,0.06);margin-bottom:10px;}
+  .week-item.today{background:rgba(124,58,237,0.1);border-color:rgba(124,58,237,0.3);}
+  .week-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .week-day{font-weight:700;font-size:15px;}
+  .week-score{font-weight:800;font-size:18px;}
+  .bar-bg{background:rgba(255,255,255,0.06);border-radius:20px;height:6px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:20px;transition:width 0.8s ease;}
+  .week-sub{margin-top:7px;font-size:12px;color:#475569;}
+  .today-badge{margin-left:8px;font-size:11px;background:#7c3aed;border-radius:20px;padding:2px 8px;color:#fff;}
+  .avg-card{margin-top:18px;background:rgba(255,255,255,0.05);border-radius:16px;padding:20px;border:1px solid rgba(255,255,255,0.08);text-align:center;}
+  .avg-label{font-size:13px;color:#64748b;margin-bottom:4px;}
+  .avg-score{font-size:40px;font-weight:800;background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .avg-sub{font-size:13px;color:#64748b;margin-top:4px;}
+  .ai-card{text-align:center;padding:44px 20px;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.07);}
+  .ai-icon{font-size:48px;margin-bottom:14px;}
+  .ai-title{font-size:16px;font-weight:600;margin-bottom:8px;}
+  .ai-sub{color:#64748b;font-size:14px;margin-bottom:24px;line-height:1.6;}
+  .ai-btn{padding:14px 32px;background:linear-gradient(135deg,#7c3aed,#2563eb);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;}
+  .ai-loading{text-align:center;padding:44px 20px;background:rgba(124,58,237,0.05);border-radius:20px;border:1px solid rgba(124,58,237,0.2);}
+  .ai-loading-icon{font-size:36px;margin-bottom:12px;display:inline-block;animation:spin 2s linear infinite;}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .ai-result{background:rgba(124,58,237,0.08);border-radius:20px;padding:22px;border:1px solid rgba(124,58,237,0.2);white-space:pre-wrap;line-height:1.7;font-size:15px;color:#e2e8f0;}
+  .ai-retry{margin-top:14px;padding:12px 24px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:#94a3b8;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;width:100%;}
+  .section-title{font-size:20px;font-weight:700;margin-bottom:18px;}
+  .install-banner{background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(37,99,235,0.2));border:1px solid rgba(124,58,237,0.3);border-radius:14px;padding:14px 16px;margin-bottom:18px;font-size:13px;color:#a78bfa;line-height:1.5;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <div class="logo">✦ DayFlow</div>
+      <div class="date" id="dateLabel"></div>
+    </div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="active" onclick="setView('today')">📋 Aujourd'hui</button>
+  <button onclick="setView('history')">📈 Semaine</button>
+  <button onclick="setView('ai')">🤖 Coach IA</button>
+</div>
+
+<div class="content">
+  <!-- INSTALL BANNER -->
+  <div class="install-banner" id="installBanner" style="display:none">
+    📱 <strong>Installer l'app :</strong> Appuyez sur <strong>Partager ⬆️</strong> puis <strong>"Sur l'écran d'accueil"</strong> pour l'avoir comme une vraie app !
+  </div>
+
+  <!-- TODAY VIEW -->
+  <div id="view-today">
+    <div class="score-card">
+      <div class="score-ring" id="scoreRing">
+        <div class="score-inner" id="scoreText">0%</div>
+      </div>
+      <div>
+        <div class="score-label" id="scoreLabel">🌅 Prêt à démarrer ?</div>
+        <div class="score-sub" id="scoreSub">0 / 0 tâches complétées</div>
+      </div>
+    </div>
+    <div id="taskList"></div>
+    <div id="addFormContainer"></div>
+    <button class="add-btn" id="addBtn" onclick="showAddForm()">+ Ajouter une tâche</button>
+  </div>
+
+  <!-- HISTORY VIEW -->
+  <div id="view-history" style="display:none">
+    <div class="section-title">📈 Votre semaine</div>
+    <div id="weekList"></div>
+    <div class="avg-card">
+      <div class="avg-label">Moyenne hebdomadaire</div>
+      <div class="avg-score" id="avgScore">0%</div>
+      <div class="avg-sub" id="avgSub">0 jour(s) parfait(s) cette semaine 🌟</div>
+    </div>
+  </div>
+
+  <!-- AI VIEW -->
+  <div id="view-ai" style="display:none">
+    <div class="section-title">🤖 Votre Coach IA</div>
+    <p style="color:#64748b;font-size:14px;margin-bottom:22px;">Analyse personnalisée de votre progression basée sur vos 7 derniers jours.</p>
+    <div id="aiContent">
+      <div class="ai-card">
+        <div class="ai-icon">🧠</div>
+        <div class="ai-title">Prêt pour votre analyse ?</div>
+        <div class="ai-sub">Votre coach IA va analyser vos habitudes<br>et vous donner des conseils personnalisés.</div>
+        <button class="ai-btn" onclick="getAIAnalysis()">Analyser ma progression ✦</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATS = [
+  {id:'work',label:'Travail',color:'#F59E0B',icon:'💼'},
+  {id:'health',label:'Santé',color:'#10B981',icon:'🏃'},
+  {id:'learning',label:'Apprentissage',color:'#6366F1',icon:'📚'},
+  {id:'personal',label:'Personnel',color:'#EC4899',icon:'🌟'},
+];
+
+let data = {};
+let currentView = 'today';
+let selectedCat = 'work';
+let selectedPriority = 'normal';
+
+function todayKey(){return new Date().toISOString().split('T')[0];}
+function getWeekDays(){const d=[];for(let i=6;i>=0;i--){const x=new Date();x.setDate(x.getDate()-i);d.push(x.toISOString().split('T')[0]);}return d;}
+function calcScore(tasks){if(!tasks||!tasks.length)return 0;return Math.round(tasks.filter(t=>t.done).length/tasks.length*100);}
+function cat(id){return CATS.find(c=>c.id===id)||CATS[0];}
+function save(){localStorage.setItem('dayflow-data',JSON.stringify(data));}
+function load(){try{const d=localStorage.getItem('dayflow-data');if(d)data=JSON.parse(d);}catch(e){}}
+
+function setView(v){
+  currentView=v;
+  ['today','history','ai'].forEach(x=>{
+    document.getElementById('view-'+x).style.display=x===v?'block':'none';
+    document.querySelectorAll('.nav button').forEach((b,i)=>{
+      b.classList.toggle('active',['today','history','ai'][i]===v);
+    });
+  });
+  if(v==='today')renderToday();
+  if(v==='history')renderHistory();
+}
+
+function renderToday(){
+  const today=todayKey();
+  const td=data[today]||{tasks:[]};
+  const tasks=td.tasks||[];
+  const done=tasks.filter(t=>t.done).length;
+  const score=calcScore(tasks);
+
+  // Score ring
+  const color=score>70?'#10b981':score>40?'#f59e0b':'#6366f1';
+  document.getElementById('scoreRing').style.background=`conic-gradient(${color} ${score*3.6}deg, rgba(255,255,255,0.06) 0deg)`;
+  document.getElementById('scoreText').textContent=score+'%';
+  document.getElementById('scoreLabel').textContent=score===100?'🎉 Parfait !':score>70?'💪 En forme !':score>0?'🔥 Continue !':'🌅 Prêt à démarrer ?';
+  document.getElementById('scoreSub').textContent=done+' / '+tasks.length+' tâches complétées';
+
+  // Tasks
+  const list=document.getElementById('taskList');
+  if(tasks.length===0){
+    list.innerHTML=`<div class="empty"><div class="empty-icon">📋</div>Aucune tâche pour aujourd'hui.<br>Commencez à planifier votre journée !</div>`;
+  } else {
+    list.innerHTML=tasks.map(t=>{
+      const c=cat(t.category);
+      return `<div class="task-item${t.done?' done':''}" id="task-${t.id}">
+        <button class="task-check" style="border-color:${t.done?c.color:'rgba(255,255,255,0.2)'};background:${t.done?c.color:'transparent'}" onclick="toggleTask(${t.id})">${t.done?'✓':''}</button>
+        <div style="flex:1">
+          <div class="task-title${t.done?' done':''}">${t.title}</div>
+          <span class="task-badge" style="background:${c.color}22;color:${c.color}">${c.icon} ${c.label}</span>
+          ${t.priority==='high'?'<span class="task-badge" style="background:#ef444422;color:#ef4444;margin-left:4px">🔴 Urgent</span>':''}
+        </div>
+        <button class="task-del" onclick="deleteTask(${t.id})">✕</button>
+      </div>`;
+    }).join('');
+  }
+}
+
+function showAddForm(){
+  document.getElementById('addBtn').style.display='none';
+  document.getElementById('addFormContainer').innerHTML=`
+    <div class="add-form">
+      <input id="taskInput" placeholder="Nom de la tâche..." onkeydown="if(event.key==='Enter')addTask()"/>
+      <div class="cat-row" id="catRow">${CATS.map(c=>`<button class="cat-btn" id="catbtn-${c.id}" style="border-color:${selectedCat===c.id?c.color:'transparent'};background:${selectedCat===c.id?c.color+'22':'rgba(255,255,255,0.06)'};color:${selectedCat===c.id?c.color:'#64748b'}" onclick="selectCat('${c.id}')">${c.icon} ${c.label}</button>`).join('')}</div>
+      <div class="form-row">
+        <select id="prioritySelect" onchange="selectedPriority=this.value">
+          <option value="normal">Priorité normale</option>
+          <option value="high">🔴 Urgent</option>
+        </select>
+        <button class="btn-primary" onclick="addTask()">Ajouter</button>
+        <button class="btn-cancel" onclick="hideAddForm()">✕</button>
+      </div>
+    </div>`;
+  document.getElementById('taskInput').focus();
+}
+
+function selectCat(id){
+  selectedCat=id;
+  CATS.forEach(c=>{
+    const btn=document.getElementById('catbtn-'+c.id);
+    if(btn){
+      btn.style.borderColor=c.id===id?c.color:'transparent';
+      btn.style.background=c.id===id?c.color+'22':'rgba(255,255,255,0.06)';
+      btn.style.color=c.id===id?c.color:'#64748b';
+    }
+  });
+}
+
+function hideAddForm(){
+  document.getElementById('addFormContainer').innerHTML='';
+  document.getElementById('addBtn').style.display='block';
+}
+
+function addTask(){
+  const input=document.getElementById('taskInput');
+  const title=input?input.value.trim():'';
+  if(!title)return;
+  const today=todayKey();
+  if(!data[today])data[today]={tasks:[]};
+  data[today].tasks.push({id:Date.now(),title,category:selectedCat,priority:selectedPriority,done:false});
+  save();
+  hideAddForm();
+  renderToday();
+}
+
+function toggleTask(id){
+  const today=todayKey();
+  const tasks=data[today]?.tasks||[];
+  const t=tasks.find(x=>x.id===id);
+  if(t)t.done=!t.done;
+  save();
+  renderToday();
+}
+
+function deleteTask(id){
+  const today=todayKey();
+  if(data[today])data[today].tasks=data[today].tasks.filter(t=>t.id!==id);
+  save();
+  renderToday();
+}
+
+function renderHistory(){
+  const days=getWeekDays();
+  const today=todayKey();
+  let total=0;
+  let perfect=0;
+  const html=days.map(day=>{
+    const d=data[day]||{tasks:[]};
+    const score=calcScore(d.tasks);
+    total+=score;
+    if(score===100)perfect++;
+    const isToday=day===today;
+    const label=new Date(day+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'});
+    const color=score>70?'linear-gradient(90deg,#10b981,#34d399)':score>40?'linear-gradient(90deg,#f59e0b,#fbbf24)':'linear-gradient(90deg,#6366f1,#818cf8)';
+    const scoreColor=score>70?'#10b981':score>40?'#f59e0b':score>0?'#6366f1':'#334155';
+    const icons=CATS.filter(c=>(d.tasks||[]).some(t=>t.category===c.id)).map(c=>c.icon).join(' ');
+    return `<div class="week-item${isToday?' today':''}">
+      <div class="week-row">
+        <div class="week-day">${label}${isToday?'<span class="today-badge">Aujourd\'hui</span>':''}</div>
+        <div class="week-score" style="color:${scoreColor}">${score}%</div>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:${score}%;background:${color}"></div></div>
+      <div class="week-sub">${(d.tasks||[]).length===0?'Aucune tâche planifiée':`${(d.tasks||[]).filter(t=>t.done).length}/${(d.tasks||[]).length} tâches ${icons?'· '+icons:''}`}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('weekList').innerHTML=html;
+  document.getElementById('avgScore').textContent=Math.round(total/7)+'%';
+  document.getElementById('avgSub').textContent=perfect+' jour(s) parfait(s) cette semaine 🌟';
+}
+
+async function getAIAnalysis(){
+  document.getElementById('aiContent').innerHTML=`<div class="ai-loading"><div class="ai-loading-icon">⚙️</div><div style="font-size:16px;color:#a78bfa">Analyse en cours...</div><div style="color:#64748b;font-size:13px;margin-top:4px">Votre coach prépare vos insights</div></div>`;
+  const days=getWeekDays();
+  const summary=days.map(day=>{
+    const d=data[day]||{tasks:[]};
+    const score=calcScore(d.tasks);
+    return `${day}: score=${score}%, tâches=${(d.tasks||[]).length}, complétées=${(d.tasks||[]).filter(t=>t.done).length}`;
+  }).join('\n');
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:`Tu es un coach personnel bienveillant et motivant. Analyse les données de planification de l'utilisateur et donne un rapport concis en français avec:\n1. 📊 Un score global de progression cette semaine\n2. 💪 Ce qui va bien (points forts)\n3. ⚠️ Ce qui peut être amélioré\n4. 🎯 3 conseils concrets et personnalisés\n5. 🌟 Un message motivant final\n\nSois précis, chaleureux et constructif. Maximum 300 mots.`,
+        messages:[{role:'user',content:`Voici mes données des 7 derniers jours:\n${summary}\n\nAnalyse ma progression et donne-moi des conseils personnalisés.`}]
+      })
+    });
+    const json=await res.json();
+    const text=json.content?.[0]?.text||'Impossible d\'obtenir l\'analyse.';
+    document.getElementById('aiContent').innerHTML=`<div class="ai-result">${text}</div><button class="ai-retry" onclick="getAIAnalysis()">🔄 Relancer l'analyse</button>`;
+  }catch(e){
+    document.getElementById('aiContent').innerHTML=`<div class="ai-result">Erreur lors de l'analyse. Vérifiez votre connexion et réessayez.</div><button class="ai-retry" onclick="getAIAnalysis()">🔄 Réessayer</button>`;
+  }
+}
+
+// Init
+load();
+document.getElementById('dateLabel').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+renderToday();
+
+// Show install banner on iOS
+if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.navigator.standalone){
+  document.getElementById('installBanner').style.display='block';
+}
+</script>
+</body>
+</html>
