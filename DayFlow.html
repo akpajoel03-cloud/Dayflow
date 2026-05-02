@@ -30,17 +30,17 @@
   .task-item{background:rgba(255,255,255,0.06);border-radius:14px;padding:13px 15px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:12px;margin-bottom:10px;transition:all 0.2s;}
   .task-item.done{background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.04);opacity:0.6;}
   .task-check{width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#fff;transition:all 0.2s;}
-  .task-title{font-weight:600;font-size:15px;transition:all 0.2s;}
+  .task-title{font-weight:600;font-size:15px;}
   .task-title.done{text-decoration:line-through;color:#475569;}
   .task-badge{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600;display:inline-block;margin-top:4px;}
   .task-del{background:none;border:none;cursor:pointer;color:#475569;font-size:16px;padding:4px;margin-left:auto;}
   .empty{text-align:center;padding:40px 20px;color:#475569;font-size:15px;background:rgba(255,255,255,0.02);border-radius:16px;border:1px dashed rgba(255,255,255,0.08);}
   .empty-icon{font-size:36px;margin-bottom:8px;}
-  .add-btn{width:100%;padding:14px;border-radius:14px;border:2px dashed rgba(124,58,237,0.4);background:rgba(124,58,237,0.06);color:#a78bfa;cursor:pointer;font-size:15px;font-weight:600;font-family:'Outfit',sans-serif;transition:all 0.2s;margin-top:4px;}
+  .add-btn{width:100%;padding:14px;border-radius:14px;border:2px dashed rgba(124,58,237,0.4);background:rgba(124,58,237,0.06);color:#a78bfa;cursor:pointer;font-size:15px;font-weight:600;font-family:'Outfit',sans-serif;margin-top:4px;}
   .add-form{background:rgba(255,255,255,0.06);border-radius:16px;padding:18px;border:1px solid rgba(255,255,255,0.12);margin-bottom:10px;}
   .add-form input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#e2e8f0;font-size:15px;font-family:'Outfit',sans-serif;outline:none;margin-bottom:12px;}
   .cat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
-  .cat-btn{padding:6px 12px;border-radius:20px;border:2px solid transparent;background:rgba(255,255,255,0.06);color:#64748b;cursor:pointer;font-size:12px;font-weight:600;font-family:'Outfit',sans-serif;transition:all 0.2s;}
+  .cat-btn{padding:6px 12px;border-radius:20px;border:2px solid transparent;background:rgba(255,255,255,0.06);color:#64748b;cursor:pointer;font-size:12px;font-weight:600;font-family:'Outfit',sans-serif;}
   .form-row{display:flex;gap:8px;align-items:center;}
   .form-row select{padding:9px 12px;border-radius:10px;flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:13px;}
   .btn-primary{padding:9px 20px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#2563eb);border:none;color:#fff;cursor:pointer;font-size:14px;font-weight:700;font-family:'Outfit',sans-serif;white-space:nowrap;}
@@ -51,7 +51,7 @@
   .week-day{font-weight:700;font-size:15px;}
   .week-score{font-weight:800;font-size:18px;}
   .bar-bg{background:rgba(255,255,255,0.06);border-radius:20px;height:6px;overflow:hidden;}
-  .bar-fill{height:100%;border-radius:20px;transition:width 0.8s ease;}
+  .bar-fill{height:100%;border-radius:20px;}
   .week-sub{margin-top:7px;font-size:12px;color:#475569;}
   .today-badge{margin-left:8px;font-size:11px;background:#7c3aed;border-radius:20px;padding:2px 8px;color:#fff;}
   .avg-card{margin-top:18px;background:rgba(255,255,255,0.05);border-radius:16px;padding:20px;border:1px solid rgba(255,255,255,0.08);text-align:center;}
@@ -69,10 +69,38 @@
   .ai-result{background:rgba(124,58,237,0.08);border-radius:20px;padding:22px;border:1px solid rgba(124,58,237,0.2);white-space:pre-wrap;line-height:1.7;font-size:15px;color:#e2e8f0;}
   .ai-retry{margin-top:14px;padding:12px 24px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:#94a3b8;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;width:100%;}
   .section-title{font-size:20px;font-weight:700;margin-bottom:18px;}
-  .install-banner{background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(37,99,235,0.2));border:1px solid rgba(124,58,237,0.3);border-radius:14px;padding:14px 16px;margin-bottom:18px;font-size:13px;color:#a78bfa;line-height:1.5;}
+  .alarm-card{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:16px;padding:18px;margin-bottom:18px;}
+  .alarm-title{font-size:15px;font-weight:700;margin-bottom:14px;}
+  .alarm-row{display:flex;gap:10px;align-items:center;margin-bottom:10px;}
+  .alarm-time-input{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);color:#e2e8f0;font-size:15px;font-family:'Outfit',sans-serif;outline:none;flex:1;}
+  .alarm-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border-radius:10px;padding:10px 14px;margin-bottom:8px;border:1px solid rgba(255,255,255,0.06);}
+  .alarm-time{font-weight:800;font-size:18px;color:#f87171;min-width:55px;}
+  .alarm-status{flex:1;font-size:13px;}
+  .alarm-toggle{padding:5px 12px;border-radius:20px;border:none;cursor:pointer;font-size:12px;font-weight:700;font-family:'Outfit',sans-serif;}
+  .alarm-del{background:none;border:none;cursor:pointer;color:#475569;font-size:16px;}
+  /* POPUP */
+  .alarm-popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:9999;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;}
+  .alarm-popup.active{display:flex;}
+  @keyframes ring{0%{transform:rotate(-20deg) scale(1);}50%{transform:rotate(20deg) scale(1.15);}100%{transform:rotate(-20deg) scale(1);}}
+  .alarm-bell{font-size:80px;animation:ring 0.4s infinite;}
+  .alarm-popup-title{font-size:30px;font-weight:800;color:#f87171;margin:16px 0 8px;}
+  .alarm-popup-task{font-size:20px;font-weight:700;color:#e2e8f0;margin-bottom:6px;max-width:320px;line-height:1.3;}
+  .alarm-popup-count{font-size:13px;color:#64748b;margin-bottom:28px;}
+  .alarm-stop-btn{padding:16px 40px;background:linear-gradient(135deg,#ef4444,#b91c1c);border:none;border-radius:16px;color:#fff;font-size:18px;font-weight:800;cursor:pointer;font-family:'Outfit',sans-serif;width:100%;max-width:300px;margin-bottom:12px;}
+  .alarm-next-btn{padding:12px 30px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;color:#e2e8f0;font-size:15px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;width:100%;max-width:300px;}
 </style>
 </head>
 <body>
+
+<!-- ALARM POPUP -->
+<div class="alarm-popup" id="alarmPopup">
+  <div class="alarm-bell">🔔</div>
+  <div class="alarm-popup-title">⏰ RAPPEL !</div>
+  <div class="alarm-popup-task" id="alarmPopupTask">Chargement...</div>
+  <div class="alarm-popup-count" id="alarmPopupCount"></div>
+  <button class="alarm-stop-btn" onclick="stopAlarm()">✅ OK, j'ai vu !</button>
+  <button class="alarm-next-btn" id="alarmNextBtn" onclick="nextAlarmTask()">➡️ Tâche suivante</button>
+</div>
 
 <div class="header">
   <div class="header-inner">
@@ -85,17 +113,14 @@
 
 <div class="nav">
   <button class="active" onclick="setView('today')">📋 Aujourd'hui</button>
+  <button onclick="setView('tomorrow')">🌙 Demain</button>
   <button onclick="setView('history')">📈 Semaine</button>
   <button onclick="setView('ai')">🤖 Coach IA</button>
 </div>
 
 <div class="content">
-  <!-- INSTALL BANNER -->
-  <div class="install-banner" id="installBanner" style="display:none">
-    📱 <strong>Installer l'app :</strong> Appuyez sur <strong>Partager ⬆️</strong> puis <strong>"Sur l'écran d'accueil"</strong> pour l'avoir comme une vraie app !
-  </div>
 
-  <!-- TODAY VIEW -->
+  <!-- TODAY -->
   <div id="view-today">
     <div class="score-card">
       <div class="score-ring" id="scoreRing">
@@ -106,23 +131,46 @@
         <div class="score-sub" id="scoreSub">0 / 0 tâches complétées</div>
       </div>
     </div>
+    <!-- ALARMES -->
+    <div class="alarm-card">
+      <div class="alarm-title">🔔 Alarmes de rappel des tâches</div>
+      <div class="alarm-row">
+        <input type="time" id="alarmTimeInput" class="alarm-time-input" value="08:00"/>
+        <button class="btn-primary" onclick="addAlarm()">+ Ajouter</button>
+      </div>
+      <div id="alarmList"></div>
+    </div>
     <div id="taskList"></div>
     <div id="addFormContainer"></div>
     <button class="add-btn" id="addBtn" onclick="showAddForm()">+ Ajouter une tâche</button>
   </div>
 
-  <!-- HISTORY VIEW -->
+  <!-- TOMORROW -->
+  <div id="view-tomorrow" style="display:none">
+    <div style="background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(37,99,235,0.15));border:1px solid rgba(124,58,237,0.3);border-radius:16px;padding:16px;margin-bottom:18px;display:flex;align-items:center;gap:12px;">
+      <div style="font-size:28px">🌙</div>
+      <div>
+        <div style="font-weight:700;font-size:16px">Planifiez votre demain</div>
+        <div style="color:#94a3b8;font-size:13px" id="tomorrowDateLabel"></div>
+      </div>
+    </div>
+    <div id="tomorrowTaskList"></div>
+    <div id="tomorrowAddFormContainer"></div>
+    <button class="add-btn" id="tomorrowAddBtn" onclick="showTomorrowAddForm()">+ Ajouter une tâche pour demain</button>
+  </div>
+
+  <!-- HISTORY -->
   <div id="view-history" style="display:none">
     <div class="section-title">📈 Votre semaine</div>
     <div id="weekList"></div>
     <div class="avg-card">
       <div class="avg-label">Moyenne hebdomadaire</div>
       <div class="avg-score" id="avgScore">0%</div>
-      <div class="avg-sub" id="avgSub">0 jour(s) parfait(s) cette semaine 🌟</div>
+      <div class="avg-sub" id="avgSub">0 jour(s) parfait(s) 🌟</div>
     </div>
   </div>
 
-  <!-- AI VIEW -->
+  <!-- AI -->
   <div id="view-ai" style="display:none">
     <div class="section-title">🤖 Votre Coach IA</div>
     <p style="color:#64748b;font-size:14px;margin-bottom:22px;">Analyse personnalisée de votre progression basée sur vos 7 derniers jours.</p>
@@ -138,199 +186,216 @@
 </div>
 
 <script>
-const CATS = [
-  {id:'work',label:'Travail',color:'#F59E0B',icon:'💼'},
-  {id:'health',label:'Santé',color:'#10B981',icon:'🏃'},
-  {id:'learning',label:'Apprentissage',color:'#6366F1',icon:'📚'},
-  {id:'personal',label:'Personnel',color:'#EC4899',icon:'🌟'},
-];
-
-let data = {};
-let currentView = 'today';
-let selectedCat = 'work';
-let selectedPriority = 'normal';
+const CATS=[{id:'work',label:'Travail',color:'#F59E0B',icon:'💼'},{id:'health',label:'Santé',color:'#10B981',icon:'🏃'},{id:'learning',label:'Apprentissage',color:'#6366F1',icon:'📚'},{id:'personal',label:'Personnel',color:'#EC4899',icon:'🌟'}];
+let data={},alarms=[],selectedCat='work',selectedPriority='normal';
+let audioCtx=null,alarmSoundInterval=null,currentAlarmTasks=[],currentAlarmIndex=0;
 
 function todayKey(){return new Date().toISOString().split('T')[0];}
+function tomorrowKey(){const d=new Date();d.setDate(d.getDate()+1);return d.toISOString().split('T')[0];}
 function getWeekDays(){const d=[];for(let i=6;i>=0;i--){const x=new Date();x.setDate(x.getDate()-i);d.push(x.toISOString().split('T')[0]);}return d;}
 function calcScore(tasks){if(!tasks||!tasks.length)return 0;return Math.round(tasks.filter(t=>t.done).length/tasks.length*100);}
 function cat(id){return CATS.find(c=>c.id===id)||CATS[0];}
-function save(){localStorage.setItem('dayflow-data',JSON.stringify(data));}
-function load(){try{const d=localStorage.getItem('dayflow-data');if(d)data=JSON.parse(d);}catch(e){}}
+function save(){localStorage.setItem('dayflow-data',JSON.stringify(data));localStorage.setItem('dayflow-alarms',JSON.stringify(alarms));}
+function load(){try{const d=localStorage.getItem('dayflow-data');if(d)data=JSON.parse(d);}catch(e){}try{const a=localStorage.getItem('dayflow-alarms');if(a)alarms=JSON.parse(a);}catch(e){}}
 
-function setView(v){
-  currentView=v;
-  ['today','history','ai'].forEach(x=>{
-    document.getElementById('view-'+x).style.display=x===v?'block':'none';
-    document.querySelectorAll('.nav button').forEach((b,i)=>{
-      b.classList.toggle('active',['today','history','ai'][i]===v);
+// === ALARM SOUND ===
+function playBeep(){
+  try{
+    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    const notes=[880,1100,880,660,880,1100];
+    let t=audioCtx.currentTime;
+    notes.forEach(freq=>{
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.connect(g);g.connect(audioCtx.destination);
+      o.type='square';o.frequency.value=freq;
+      g.gain.setValueAtTime(0.4,t);
+      g.gain.exponentialRampToValueAtTime(0.001,t+0.18);
+      o.start(t);o.stop(t+0.18);t+=0.22;
     });
-  });
-  if(v==='today')renderToday();
-  if(v==='history')renderHistory();
+  }catch(e){}
 }
 
-function renderToday(){
-  const today=todayKey();
-  const td=data[today]||{tasks:[]};
-  const tasks=td.tasks||[];
-  const done=tasks.filter(t=>t.done).length;
-  const score=calcScore(tasks);
+function startAlarmSound(){playBeep();alarmSoundInterval=setInterval(playBeep,1800);}
+function stopAlarmSound(){if(alarmSoundInterval){clearInterval(alarmSoundInterval);alarmSoundInterval=null;}}
 
-  // Score ring
-  const color=score>70?'#10b981':score>40?'#f59e0b':'#6366f1';
-  document.getElementById('scoreRing').style.background=`conic-gradient(${color} ${score*3.6}deg, rgba(255,255,255,0.06) 0deg)`;
-  document.getElementById('scoreText').textContent=score+'%';
-  document.getElementById('scoreLabel').textContent=score===100?'🎉 Parfait !':score>70?'💪 En forme !':score>0?'🔥 Continue !':'🌅 Prêt à démarrer ?';
-  document.getElementById('scoreSub').textContent=done+' / '+tasks.length+' tâches complétées';
+function showAlarmPopup(tasks,index){
+  currentAlarmTasks=tasks;currentAlarmIndex=index;
+  if(index>=tasks.length){stopAlarm();return;}
+  const t=tasks[index];
+  document.getElementById('alarmPopupTask').textContent='📌 '+t.title;
+  document.getElementById('alarmPopupCount').textContent=(index+1)+' sur '+tasks.length+' tâche(s) restante(s)';
+  document.getElementById('alarmNextBtn').style.display=index<tasks.length-1?'block':'none';
+  document.getElementById('alarmPopup').classList.add('active');
+  startAlarmSound();
+  if(navigator.vibrate)navigator.vibrate([600,200,600,200,600,200,600]);
+}
 
-  // Tasks
-  const list=document.getElementById('taskList');
+function stopAlarm(){
+  document.getElementById('alarmPopup').classList.remove('active');
+  stopAlarmSound();
+  if(navigator.vibrate)navigator.vibrate(0);
+}
+
+function nextAlarmTask(){
+  stopAlarmSound();
+  setTimeout(()=>showAlarmPopup(currentAlarmTasks,currentAlarmIndex+1),300);
+}
+
+function triggerAlarm(){
+  const tasks=(data[todayKey()]||{tasks:[]}).tasks.filter(t=>!t.done);
   if(tasks.length===0){
-    list.innerHTML=`<div class="empty"><div class="empty-icon">📋</div>Aucune tâche pour aujourd'hui.<br>Commencez à planifier votre journée !</div>`;
-  } else {
-    list.innerHTML=tasks.map(t=>{
-      const c=cat(t.category);
-      return `<div class="task-item${t.done?' done':''}" id="task-${t.id}">
-        <button class="task-check" style="border-color:${t.done?c.color:'rgba(255,255,255,0.2)'};background:${t.done?c.color:'transparent'}" onclick="toggleTask(${t.id})">${t.done?'✓':''}</button>
-        <div style="flex:1">
-          <div class="task-title${t.done?' done':''}">${t.title}</div>
-          <span class="task-badge" style="background:${c.color}22;color:${c.color}">${c.icon} ${c.label}</span>
-          ${t.priority==='high'?'<span class="task-badge" style="background:#ef444422;color:#ef4444;margin-left:4px">🔴 Urgent</span>':''}
-        </div>
-        <button class="task-del" onclick="deleteTask(${t.id})">✕</button>
-      </div>`;
-    }).join('');
+    // All done, celebrate!
+    alert('🎉 Bravo ! Toutes vos tâches sont complétées !');
+    return;
   }
+  showAlarmPopup(tasks,0);
 }
 
-function showAddForm(){
-  document.getElementById('addBtn').style.display='none';
-  document.getElementById('addFormContainer').innerHTML=`
-    <div class="add-form">
-      <input id="taskInput" placeholder="Nom de la tâche..." onkeydown="if(event.key==='Enter')addTask()"/>
-      <div class="cat-row" id="catRow">${CATS.map(c=>`<button class="cat-btn" id="catbtn-${c.id}" style="border-color:${selectedCat===c.id?c.color:'transparent'};background:${selectedCat===c.id?c.color+'22':'rgba(255,255,255,0.06)'};color:${selectedCat===c.id?c.color:'#64748b'}" onclick="selectCat('${c.id}')">${c.icon} ${c.label}</button>`).join('')}</div>
-      <div class="form-row">
-        <select id="prioritySelect" onchange="selectedPriority=this.value">
-          <option value="normal">Priorité normale</option>
-          <option value="high">🔴 Urgent</option>
-        </select>
-        <button class="btn-primary" onclick="addTask()">Ajouter</button>
-        <button class="btn-cancel" onclick="hideAddForm()">✕</button>
-      </div>
-    </div>`;
-  document.getElementById('taskInput').focus();
-}
-
-function selectCat(id){
-  selectedCat=id;
-  CATS.forEach(c=>{
-    const btn=document.getElementById('catbtn-'+c.id);
-    if(btn){
-      btn.style.borderColor=c.id===id?c.color:'transparent';
-      btn.style.background=c.id===id?c.color+'22':'rgba(255,255,255,0.06)';
-      btn.style.color=c.id===id?c.color:'#64748b';
+function checkAlarms(){
+  const now=new Date();
+  const hhmm=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+  alarms.forEach(alarm=>{
+    const key=todayKey()+'-'+alarm.time;
+    if(alarm.active&&alarm.time===hhmm&&alarm.lastFired!==key){
+      alarm.lastFired=key;save();
+      triggerAlarm();
     }
   });
 }
 
-function hideAddForm(){
-  document.getElementById('addFormContainer').innerHTML='';
-  document.getElementById('addBtn').style.display='block';
+function addAlarm(){
+  const time=document.getElementById('alarmTimeInput').value;
+  if(!time)return;
+  if(alarms.find(a=>a.time===time)){alert('Cette alarme existe déjà !');return;}
+  alarms.push({id:Date.now(),time,active:true,lastFired:''});
+  save();renderAlarms();
 }
 
-function addTask(){
-  const input=document.getElementById('taskInput');
-  const title=input?input.value.trim():'';
-  if(!title)return;
-  const today=todayKey();
-  if(!data[today])data[today]={tasks:[]};
-  data[today].tasks.push({id:Date.now(),title,category:selectedCat,priority:selectedPriority,done:false});
-  save();
-  hideAddForm();
-  renderToday();
+function toggleAlarm(id){
+  const a=alarms.find(x=>x.id===id);if(a)a.active=!a.active;save();renderAlarms();
 }
 
-function toggleTask(id){
-  const today=todayKey();
-  const tasks=data[today]?.tasks||[];
-  const t=tasks.find(x=>x.id===id);
-  if(t)t.done=!t.done;
-  save();
-  renderToday();
+function deleteAlarm(id){alarms=alarms.filter(x=>x.id!==id);save();renderAlarms();}
+
+function renderAlarms(){
+  const list=document.getElementById('alarmList');if(!list)return;
+  if(alarms.length===0){list.innerHTML='<div style="color:#475569;font-size:13px;text-align:center;padding:6px">Aucune alarme configurée</div>';return;}
+  list.innerHTML=alarms.map(a=>`<div class="alarm-item">
+    <div class="alarm-time">${a.time}</div>
+    <div class="alarm-status" style="color:${a.active?'#10b981':'#475569'}">${a.active?'🟢 Active':'⭕ Off'}</div>
+    <button class="alarm-toggle" style="background:${a.active?'#10b981':'#334155'};color:#fff" onclick="toggleAlarm(${a.id})">${a.active?'ON':'OFF'}</button>
+    <button class="alarm-del" onclick="deleteAlarm(${a.id})">🗑️</button>
+  </div>`).join('');
 }
 
-function deleteTask(id){
-  const today=todayKey();
-  if(data[today])data[today].tasks=data[today].tasks.filter(t=>t.id!==id);
-  save();
-  renderToday();
+// === VIEWS ===
+function setView(v){
+  ['today','tomorrow','history','ai'].forEach(x=>{document.getElementById('view-'+x).style.display=x===v?'block':'none';});
+  document.querySelectorAll('.nav button').forEach((b,i)=>{b.classList.toggle('active',['today','tomorrow','history','ai'][i]===v);});
+  if(v==='today')renderToday();
+  if(v==='tomorrow')renderTomorrow();
+  if(v==='history')renderHistory();
+}
+
+function renderToday(){
+  const today=todayKey(),td=data[today]||{tasks:[]},tasks=td.tasks||[];
+  const done=tasks.filter(t=>t.done).length,score=calcScore(tasks);
+  const color=score>70?'#10b981':score>40?'#f59e0b':'#6366f1';
+  document.getElementById('scoreRing').style.background=`conic-gradient(${color} ${score*3.6}deg,rgba(255,255,255,0.06) 0deg)`;
+  document.getElementById('scoreText').textContent=score+'%';
+  document.getElementById('scoreLabel').textContent=score===100?'🎉 Parfait !':score>70?'💪 En forme !':score>0?'🔥 Continue !':'🌅 Prêt à démarrer ?';
+  document.getElementById('scoreSub').textContent=done+' / '+tasks.length+' tâches complétées';
+  const list=document.getElementById('taskList');
+  list.innerHTML=tasks.length===0?`<div class="empty"><div class="empty-icon">📋</div>Aucune tâche pour aujourd'hui.<br>Commencez à planifier votre journée !</div>`:
+    tasks.map(t=>{const c=cat(t.category);return `<div class="task-item${t.done?' done':''}">
+      <button class="task-check" style="border-color:${t.done?c.color:'rgba(255,255,255,0.2)'};background:${t.done?c.color:'transparent'}" onclick="toggleTask(${t.id})">${t.done?'✓':''}</button>
+      <div style="flex:1"><div class="task-title${t.done?' done':''}">${t.title}</div>
+      <span class="task-badge" style="background:${c.color}22;color:${c.color}">${c.icon} ${c.label}</span>
+      ${t.priority==='high'?'<span class="task-badge" style="background:#ef444422;color:#ef4444;margin-left:4px">🔴 Urgent</span>':''}</div>
+      <button class="task-del" onclick="deleteTask(${t.id})">✕</button></div>`;}).join('');
+  renderAlarms();
+}
+
+function renderTomorrow(){
+  const tomorrow=tomorrowKey(),td=data[tomorrow]||{tasks:[]},tasks=td.tasks||[];
+  document.getElementById('tomorrowDateLabel').textContent=new Date(tomorrow+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+  const list=document.getElementById('tomorrowTaskList');
+  list.innerHTML=tasks.length===0?`<div class="empty"><div class="empty-icon">🌙</div>Aucune tâche pour demain.<br>Planifiez votre journée de demain !</div>`:
+    tasks.map(t=>{const c=cat(t.category);return `<div class="task-item">
+      <div style="width:24px;height:24px;border-radius:50%;background:${c.color}22;border:2px solid ${c.color};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px">${c.icon}</div>
+      <div style="flex:1"><div class="task-title">${t.title}</div>
+      <span class="task-badge" style="background:${c.color}22;color:${c.color}">${c.label}</span>
+      ${t.priority==='high'?'<span class="task-badge" style="background:#ef444422;color:#ef4444;margin-left:4px">🔴 Urgent</span>':''}</div>
+      <button class="task-del" onclick="deleteTomorrowTask(${t.id})">✕</button></div>`;}).join('');
 }
 
 function renderHistory(){
-  const days=getWeekDays();
-  const today=todayKey();
-  let total=0;
-  let perfect=0;
-  const html=days.map(day=>{
-    const d=data[day]||{tasks:[]};
-    const score=calcScore(d.tasks);
-    total+=score;
-    if(score===100)perfect++;
+  const days=getWeekDays(),today=todayKey();let total=0,perfect=0;
+  document.getElementById('weekList').innerHTML=days.map(day=>{
+    const d=data[day]||{tasks:[]},score=calcScore(d.tasks);
+    total+=score;if(score===100)perfect++;
     const isToday=day===today;
     const label=new Date(day+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'});
-    const color=score>70?'linear-gradient(90deg,#10b981,#34d399)':score>40?'linear-gradient(90deg,#f59e0b,#fbbf24)':'linear-gradient(90deg,#6366f1,#818cf8)';
-    const scoreColor=score>70?'#10b981':score>40?'#f59e0b':score>0?'#6366f1':'#334155';
+    const c=score>70?'linear-gradient(90deg,#10b981,#34d399)':score>40?'linear-gradient(90deg,#f59e0b,#fbbf24)':'linear-gradient(90deg,#6366f1,#818cf8)';
+    const sc=score>70?'#10b981':score>40?'#f59e0b':score>0?'#6366f1':'#334155';
     const icons=CATS.filter(c=>(d.tasks||[]).some(t=>t.category===c.id)).map(c=>c.icon).join(' ');
     return `<div class="week-item${isToday?' today':''}">
-      <div class="week-row">
-        <div class="week-day">${label}${isToday?'<span class="today-badge">Aujourd\'hui</span>':''}</div>
-        <div class="week-score" style="color:${scoreColor}">${score}%</div>
-      </div>
-      <div class="bar-bg"><div class="bar-fill" style="width:${score}%;background:${color}"></div></div>
-      <div class="week-sub">${(d.tasks||[]).length===0?'Aucune tâche planifiée':`${(d.tasks||[]).filter(t=>t.done).length}/${(d.tasks||[]).length} tâches ${icons?'· '+icons:''}`}</div>
+      <div class="week-row"><div class="week-day">${label}${isToday?'<span class="today-badge">Aujourd\'hui</span>':''}</div><div class="week-score" style="color:${sc}">${score}%</div></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:${score}%;background:${c}"></div></div>
+      <div class="week-sub">${(d.tasks||[]).length===0?'Aucune tâche':`${(d.tasks||[]).filter(t=>t.done).length}/${(d.tasks||[]).length} tâches ${icons?'· '+icons:''}`}</div>
     </div>`;
   }).join('');
-  document.getElementById('weekList').innerHTML=html;
   document.getElementById('avgScore').textContent=Math.round(total/7)+'%';
   document.getElementById('avgSub').textContent=perfect+' jour(s) parfait(s) cette semaine 🌟';
 }
 
+// === TASK CRUD ===
+function showAddForm(){
+  document.getElementById('addBtn').style.display='none';
+  document.getElementById('addFormContainer').innerHTML=`<div class="add-form">
+    <input id="taskInput" placeholder="Nom de la tâche..." onkeydown="if(event.key==='Enter')addTask()"/>
+    <div class="cat-row">${CATS.map(c=>`<button class="cat-btn" id="cb-${c.id}" style="border-color:${selectedCat===c.id?c.color:'transparent'};background:${selectedCat===c.id?c.color+'22':'rgba(255,255,255,0.06)'};color:${selectedCat===c.id?c.color:'#64748b'}" onclick="selectCat('${c.id}')">${c.icon} ${c.label}</button>`).join('')}</div>
+    <div class="form-row"><select onchange="selectedPriority=this.value"><option value="normal">Priorité normale</option><option value="high">🔴 Urgent</option></select>
+    <button class="btn-primary" onclick="addTask()">Ajouter</button><button class="btn-cancel" onclick="hideAddForm()">✕</button></div></div>`;
+  document.getElementById('taskInput').focus();
+}
+function selectCat(id){selectedCat=id;CATS.forEach(c=>{const b=document.getElementById('cb-'+c.id);if(b){b.style.borderColor=c.id===id?c.color:'transparent';b.style.background=c.id===id?c.color+'22':'rgba(255,255,255,0.06)';b.style.color=c.id===id?c.color:'#64748b';}});}
+function hideAddForm(){document.getElementById('addFormContainer').innerHTML='';document.getElementById('addBtn').style.display='block';}
+function addTask(){const i=document.getElementById('taskInput'),t=i?i.value.trim():'';if(!t)return;const k=todayKey();if(!data[k])data[k]={tasks:[]};data[k].tasks.push({id:Date.now(),title:t,category:selectedCat,priority:selectedPriority,done:false});save();hideAddForm();renderToday();}
+function toggleTask(id){const k=todayKey(),t=(data[k]?.tasks||[]).find(x=>x.id===id);if(t)t.done=!t.done;save();renderToday();}
+function deleteTask(id){const k=todayKey();if(data[k])data[k].tasks=data[k].tasks.filter(t=>t.id!==id);save();renderToday();}
+
+function showTomorrowAddForm(){
+  document.getElementById('tomorrowAddBtn').style.display='none';
+  document.getElementById('tomorrowAddFormContainer').innerHTML=`<div class="add-form">
+    <input id="tmrInput" placeholder="Tâche pour demain..." onkeydown="if(event.key==='Enter')addTomorrowTask()"/>
+    <div class="cat-row">${CATS.map(c=>`<button class="cat-btn" id="tc-${c.id}" style="border-color:${selectedCat===c.id?c.color:'transparent'};background:${selectedCat===c.id?c.color+'22':'rgba(255,255,255,0.06)'};color:${selectedCat===c.id?c.color:'#64748b'}" onclick="selectTmrCat('${c.id}')">${c.icon} ${c.label}</button>`).join('')}</div>
+    <div class="form-row"><select onchange="selectedPriority=this.value"><option value="normal">Priorité normale</option><option value="high">🔴 Urgent</option></select>
+    <button class="btn-primary" onclick="addTomorrowTask()">Ajouter</button><button class="btn-cancel" onclick="hideTomorrowAddForm()">✕</button></div></div>`;
+  document.getElementById('tmrInput').focus();
+}
+function selectTmrCat(id){selectedCat=id;CATS.forEach(c=>{const b=document.getElementById('tc-'+c.id);if(b){b.style.borderColor=c.id===id?c.color:'transparent';b.style.background=c.id===id?c.color+'22':'rgba(255,255,255,0.06)';b.style.color=c.id===id?c.color:'#64748b';}});}
+function hideTomorrowAddForm(){document.getElementById('tomorrowAddFormContainer').innerHTML='';document.getElementById('tomorrowAddBtn').style.display='block';}
+function addTomorrowTask(){const i=document.getElementById('tmrInput'),t=i?i.value.trim():'';if(!t)return;const k=tomorrowKey();if(!data[k])data[k]={tasks:[]};data[k].tasks.push({id:Date.now(),title:t,category:selectedCat,priority:selectedPriority,done:false});save();hideTomorrowAddForm();renderTomorrow();}
+function deleteTomorrowTask(id){const k=tomorrowKey();if(data[k])data[k].tasks=data[k].tasks.filter(t=>t.id!==id);save();renderTomorrow();}
+
+// === AI ===
 async function getAIAnalysis(){
-  document.getElementById('aiContent').innerHTML=`<div class="ai-loading"><div class="ai-loading-icon">⚙️</div><div style="font-size:16px;color:#a78bfa">Analyse en cours...</div><div style="color:#64748b;font-size:13px;margin-top:4px">Votre coach prépare vos insights</div></div>`;
-  const days=getWeekDays();
-  const summary=days.map(day=>{
-    const d=data[day]||{tasks:[]};
-    const score=calcScore(d.tasks);
-    return `${day}: score=${score}%, tâches=${(d.tasks||[]).length}, complétées=${(d.tasks||[]).filter(t=>t.done).length}`;
-  }).join('\n');
+  document.getElementById('aiContent').innerHTML=`<div class="ai-loading"><div class="ai-loading-icon">⚙️</div><div style="font-size:16px;color:#a78bfa">Analyse en cours...</div></div>`;
+  const summary=getWeekDays().map(day=>{const d=data[day]||{tasks:[]};return `${day}: score=${calcScore(d.tasks)}%, tâches=${(d.tasks||[]).length}, complétées=${(d.tasks||[]).filter(t=>t.done).length}`;}).join('\n');
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system:`Tu es un coach personnel bienveillant et motivant. Analyse les données de planification de l'utilisateur et donne un rapport concis en français avec:\n1. 📊 Un score global de progression cette semaine\n2. 💪 Ce qui va bien (points forts)\n3. ⚠️ Ce qui peut être amélioré\n4. 🎯 3 conseils concrets et personnalisés\n5. 🌟 Un message motivant final\n\nSois précis, chaleureux et constructif. Maximum 300 mots.`,
-        messages:[{role:'user',content:`Voici mes données des 7 derniers jours:\n${summary}\n\nAnalyse ma progression et donne-moi des conseils personnalisés.`}]
-      })
-    });
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:`Tu es un coach personnel bienveillant. Analyse les données et réponds en français avec:\n1. 📊 Score global\n2. 💪 Points forts\n3. ⚠️ À améliorer\n4. 🎯 3 conseils concrets\n5. 🌟 Message motivant\nMax 300 mots.`,messages:[{role:'user',content:`Données 7 derniers jours:\n${summary}\n\nAnalyse ma progression.`}]})});
     const json=await res.json();
-    const text=json.content?.[0]?.text||'Impossible d\'obtenir l\'analyse.';
-    document.getElementById('aiContent').innerHTML=`<div class="ai-result">${text}</div><button class="ai-retry" onclick="getAIAnalysis()">🔄 Relancer l'analyse</button>`;
-  }catch(e){
-    document.getElementById('aiContent').innerHTML=`<div class="ai-result">Erreur lors de l'analyse. Vérifiez votre connexion et réessayez.</div><button class="ai-retry" onclick="getAIAnalysis()">🔄 Réessayer</button>`;
-  }
+    document.getElementById('aiContent').innerHTML=`<div class="ai-result">${json.content?.[0]?.text||'Erreur.'}</div><button class="ai-retry" onclick="getAIAnalysis()">🔄 Relancer</button>`;
+  }catch(e){document.getElementById('aiContent').innerHTML=`<div class="ai-result">Erreur de connexion.</div><button class="ai-retry" onclick="getAIAnalysis()">🔄 Réessayer</button>`;}
 }
 
-// Init
+// === INIT ===
 load();
 document.getElementById('dateLabel').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
 renderToday();
-
-// Show install banner on iOS
-if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.navigator.standalone){
-  document.getElementById('installBanner').style.display='block';
-}
+setInterval(checkAlarms,30000);
+checkAlarms();
 </script>
 </body>
 </html>
